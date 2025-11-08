@@ -37,4 +37,5 @@ while True:
 # fecha a conexão
 c.close()
 
-conexão()
+conexão.close()
+
